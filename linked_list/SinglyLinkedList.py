@@ -10,7 +10,7 @@ class SinglyLinkedList:
         self.tail = None
         self.length = 0
 
-    def __str__(self):
+    def __str__(self) -> str:
         result = ''
         curr = self.head
         while curr is not None:
@@ -20,7 +20,7 @@ class SinglyLinkedList:
             curr = curr.next
         return result
 
-    def append(self, data):
+    def append(self, data) -> None:
         newNode = Node(data)
         if self.length == 0:
             self.head = newNode
@@ -32,7 +32,7 @@ class SinglyLinkedList:
 
         self.length += 1
 
-    def prepend(self, data):
+    def prepend(self, data) -> None:
         newNode = Node(data)
         if self.length == 0:
             self.head = newNode
@@ -43,7 +43,7 @@ class SinglyLinkedList:
             self.head.next = temp
         self.length += 1
 
-    def insert(self, data, index):
+    def insert(self, data, index: int) -> None:
         if index < 0 or index > self.length + 1:
             return
         if index == 0:
@@ -60,16 +60,15 @@ class SinglyLinkedList:
             curr.next = newNode
         self.length += 1
 
-    def traverse(self):
+    def traverse(self) -> None:
         curr = self.head
         while curr is not None:
             print(curr.data)
             curr = curr.next
 
-    def delete(self, index):
+    def delete(self, index: int) -> int | None:
         deletedNode = None
-        # if index >= self.length or index < 0:
-        #     return
+
         if self.length == 1 and index == 0:
             temp = self.head
             self.head = None
@@ -81,7 +80,7 @@ class SinglyLinkedList:
             deletedNode = temp.data
         elif self.length > 1 and index == self.length - 1:
             curr = self.head
-            for _ in range(index-1):
+            for _ in range(index - 1):
                 curr = curr.next
             temp = self.tail
             self.tail = curr
@@ -98,6 +97,54 @@ class SinglyLinkedList:
         if deletedNode is not None:
             self.length -= 1
         return deletedNode
+
+    def find(self, value) -> int:
+        curr = self.head
+        searchedIndex = -1
+        isFound = False
+        while curr:
+            searchedIndex += 1
+            if curr.data == value:
+                isFound = True
+                break
+            curr = curr.next
+        return searchedIndex if isFound else -1
+
+    def update(self, original, target) -> bool:
+        isUpdated = False
+        curr = self.head
+
+        while curr:
+            if curr.data == original:
+                curr.data = target
+                isUpdated = True
+                break
+            curr = curr.next
+
+        return isUpdated
+
+    def getValue(self, index) -> int | None:
+        element = None
+        if index < 0:
+            index = self.length - abs(index)
+        if self.length - 1 >= index > 0:
+            curr = self.head
+            for _ in range(index):
+                curr = curr.next
+            element = curr.data
+        return element
+
+    def setValue(self, index, target) -> bool:
+        isValueSet = False
+        if index < 0:
+            index = self.length - abs(index)
+        if self.length - 1 >= index > 0:
+            curr = self.head
+            for _ in range(index):
+                curr = curr.next
+            curr.data = target
+            isValueSet = True
+        return isValueSet
 
     def getLength(self):
         return self.length
@@ -127,4 +174,20 @@ if __name__ == "__main__":
     print(sll)
     print(f"Deleting third element: {sll.delete(2)}")
     print(sll)
-
+    print("-------Finding element in the Linked List--------")
+    print(f"Finding 100: {sll.find(100)}")
+    print(f"Finding 20: {sll.find(20)}")
+    print("-------Update element in the Linked List--------")
+    print(f"Update 20 to 25: {sll.update(20, 27)}")
+    print(f"Update 50 to 60: {sll.update(50, 60)}")
+    print(sll)
+    print("-------Get element in the Linked List based on index--------")
+    print(f"Getting value of index 2: {sll.getValue(2)}")
+    print(f"Getting value of index -1: {sll.getValue(-1)}")
+    print(f"Getting value of index -12: {sll.getValue(-12)}")
+    print("-------Set value in the Linked List based on index--------")
+    print(sll)
+    print(f"Setting value for index 2: {sll.setValue(2, 30)}")
+    print(f"Setting value for index 3: {sll.setValue(3, 50)}")
+    print(f"Setting value for index 10: {sll.setValue(10, 100)}")  # Invalid inputs
+    print(sll)
