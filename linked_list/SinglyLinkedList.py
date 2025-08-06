@@ -149,6 +149,7 @@ class SinglyLinkedList:
     def deleteLinkedList(self):
         self.head = None
         self.tail = None
+
     def getLength(self):
         return self.length
 
