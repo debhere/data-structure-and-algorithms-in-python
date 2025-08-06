@@ -146,6 +146,9 @@ class SinglyLinkedList:
             isValueSet = True
         return isValueSet
 
+    def deleteLinkedList(self):
+        self.head = None
+        self.tail = None
     def getLength(self):
         return self.length
 
@@ -191,3 +194,6 @@ if __name__ == "__main__":
     print(f"Setting value for index 3: {sll.setValue(3, 50)}")
     print(f"Setting value for index 10: {sll.setValue(10, 100)}")  # Invalid inputs
     print(sll)
+    print("-------Delete entire linked list--------")
+    sll.deleteLinkedList()
+    print(f"Linked List is empty: {sll}")
