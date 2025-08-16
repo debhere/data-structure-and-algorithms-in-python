@@ -34,6 +34,21 @@ class CircularSinglyLinkedList:
             node.next = self.head
             self.tail = node
 
+    def prepend(self, value):
+        current = self.head
+        node = Node(value)
+        if current is None:
+            self.head = node
+            self.tail = node
+            self.tail.next = self.head
+        else:
+            node.next = current
+            self.tail.next = node
+            self.head = node
+
+    def insert(self, index, value):
+        pass
+
     def isEmpty(self):
         return self.head is None
 
@@ -48,3 +63,7 @@ if __name__ == "__main__":
     print(csll)
     print(csll.head.value, csll.tail.value)
     print(csll.isEmpty())
+    print("--------Prepending data in Linked List----------")
+    csll.prepend(5)
+    csll.prepend(-10)
+    print(csll)
