@@ -1,3 +1,6 @@
+from typing import Any
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -84,24 +87,58 @@ class CircularSinglyLinkedList:
     def isEmpty(self):
         return self.head is None
 
+    def remove(self, data) -> bool:
+        temp = self.head
+        is_found = False
+        if self.head.value == data:
+            self.head = self.head.next
+            self.tail.next = self.head
+            is_found = True
+        else:
+            while temp:
+                if temp.next.value == data:
+                    if temp.next == self.tail:
+                        self.tail = temp
+                        self.tail.next = self.head
+                    else:
+                        temp.next = temp.next.next
+                    is_found = True
+                    break
+                if temp == self.tail:
+                    break
+                temp = temp.next
+        return is_found
+
 
 if __name__ == "__main__":
-    csll = CircularSinglyLinkedList()
+    circularSingly = CircularSinglyLinkedList()
     print("--------Checking if Linked List is Empty----------")
-    print(csll.isEmpty())
+    print(circularSingly.isEmpty())
     print("--------Appending data into Linked List----------")
-    csll.append(10)
-    csll.append(20)
-    print(csll)
-    print(csll.head.value, csll.tail.value)
-    print(csll.isEmpty())
+    circularSingly.append(10)
+    circularSingly.append(20)
+    print(circularSingly)
+    print(circularSingly.head.value, circularSingly.tail.value)
+    print(circularSingly.isEmpty())
     print("--------Prepending data into Linked List----------")
-    csll.prepend(5)
-    csll.prepend(-10)
-    print(csll)
+    circularSingly.prepend(5)
+    circularSingly.prepend(-10)
+    print(circularSingly)
     print("--------Length of Linked List----------")
-    print(csll.getLength())
+    print(circularSingly.getLength())
     print("--------Inserting data into Linked List----------")
-    print(csll.insert(2, 100))
-    print(csll.insert(4, 50))
-    print(csll)
+    print(circularSingly.insert(2, 100))
+    print(circularSingly.insert(4, 50))
+    print(circularSingly)
+    print(f"Check if the list is empty: {circularSingly.isEmpty()}")
+    print("--------Deleting data from Linked List----------")
+    print(circularSingly.remove(100))
+    print(circularSingly)
+    print(circularSingly.head.value, circularSingly.tail.value)
+    print(circularSingly.remove(50))
+    print(circularSingly)
+    print(circularSingly.head.value, circularSingly.tail.value)
+    print(circularSingly.remove(-10))
+    print(circularSingly)
+    print(circularSingly.remove(200))
+    print(circularSingly)
