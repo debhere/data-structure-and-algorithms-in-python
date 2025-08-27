@@ -24,10 +24,18 @@ class CircularSinglyLinkedList:
             current = current.next
         return result
 
+    def traverse(self):
+        curr = self.head
+        while curr:
+            print(curr.value)
+            if curr == self.tail:
+                break
+            curr = curr.next
+
     def getLength(self):
         length = 0
         current = self.head
-        if self.head == self.tail:
+        if self.head is not None and self.head == self.tail:
             length += 1
         else:
             while current:
@@ -109,6 +117,10 @@ class CircularSinglyLinkedList:
                 temp = temp.next
         return is_found
 
+    def remove_all(self):
+        self.head = None
+        self.tail = None
+
 
 if __name__ == "__main__":
     circularSingly = CircularSinglyLinkedList()
@@ -142,3 +154,12 @@ if __name__ == "__main__":
     print(circularSingly)
     print(circularSingly.remove(200))
     print(circularSingly)
+    print(circularSingly.getLength())
+    print("--------Traversing through the Linked List----------")
+    circularSingly.traverse()
+    print("--------Deleting all elements----------")
+    print(f"Length of thee list: {circularSingly.getLength()}")
+    circularSingly.remove_all()
+    print(f"Length of the list after removing all elements: {circularSingly.getLength()}")
+
+
