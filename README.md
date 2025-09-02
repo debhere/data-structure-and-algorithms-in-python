@@ -13,5 +13,5 @@ Doubly Linked List (Linear): Nodes have pointers to both the next and previous n
 Circular Linked List (Non-Linear): The tail's pointer connects back to the head, forming a cycle. This circular reference makes it a non-linear, cyclic structure.
 
 ### The Trade-Off
-This pointer-based architecture provides O(1) time complexity for insertions/deletions at known positions but sacrifices O(n) time complexity for random access, as traversal from the head is always required.
+This pointer-based architecture provides **O(1)** time complexity for insertions/deletions at known positions but sacrifices **O(n)** time complexity for random access, as traversal from the head is always required.
 In essence, it's the foundational structure for prioritizing efficient mutations over fast lookup.
