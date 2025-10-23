@@ -37,7 +37,7 @@ if __name__ == "__main__":
     print(cansum_bruteforce(8, [2, 3, 5]))
     # print(cansum_bruteforce(300, [7, 14]))
     # As expected, the above case is getting hung-up the execution
-    # in the brute-force solution. Ned memoization
+    # in the brute-force solution. Need memoization
 
     print("Memoization output starts from here")
 
