@@ -1,4 +1,4 @@
-# This is a memoization example
+# This is a memoization implementation
 def fibonacci_memo(n: int, memo=None) -> int:
     if memo is None:
         memo: dict = {}
@@ -12,6 +12,7 @@ def fibonacci_memo(n: int, memo=None) -> int:
     return memo[n]
 
 
+# This is tabulation implementation of fibonacci
 def fibonacci_tabulation(n):
     if n <= 1:
         return n
