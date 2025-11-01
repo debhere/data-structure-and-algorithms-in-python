@@ -15,7 +15,7 @@ def fibonacci_memo(n: int, memo=None) -> int:
 # This is tabulation implementation of fibonacci
 def fibonacci_tabulation(n):
     if n <= 1:
-        return n
+        return 1
 
     dlist = [0] * (n + 1)
     dlist[0] = 0
