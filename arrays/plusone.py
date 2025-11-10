@@ -8,7 +8,7 @@ def plusOne(digits: List[int]) -> List[int]:
     the function will add 1 to the number i.e., 124 and then return [1, 2, 4]
 
     Args:
-        digits (List[int]): An integer number represented in an list of integers.
+        digits (List[int]): An integer number represented in a list of integers.
 
     Returns:
         List[int]: Resulting number after adding one represented in a list of integers.
