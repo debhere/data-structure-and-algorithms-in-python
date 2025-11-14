@@ -41,6 +41,9 @@ def maxProfit(prices: List[int]) -> int:
     """This is the optimized solution of this problem. We are comparing the buying price and the current
     price and accordingly updating the profit.
 
+    Both the solutions achieve O(n) time complexity and O(1) space complexity. So ideally either of this
+    or the above solution can be implemented.
+
     Args:
         prices(List[int]): An array of prices
 
