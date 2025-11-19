@@ -3,8 +3,8 @@ from typing import List
 
 # Expectation => O(n) time complexity and O(1) space complexity
 def getSingleNumber(nums: List[int]) -> int:
-    """This is a LeetCode problem. This problem is solved with XOR/bit manipulation.
-    XOR of any two number gives the difference of bits as 1 and same bit as 0. In other words, each
+    """This is a LeetCode problem. Expectation is to return only the integer which appears only
+    once. This problem is solved with XOR/bit manipulation. XOR of any two number gives the difference of bits as 1 and same bit as 0. In other words, each
     time we have a difference in bits, singleNumber value will be increased by that number and when
     we encounter a same number again, the singleNumber value will be decreased by that number.
 
