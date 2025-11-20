@@ -1,6 +1,24 @@
 import string
 
 
+def convertToNumber(columnTitle: str) -> int:
+    number: int = 0
+    numberMap: dict[str] = {string.ascii_uppercase[i - 1]: i for i in range(1, 27)}
+
+    titleLen = len(columnTitle)
+
+    if titleLen == 1:
+        number += numberMap[columnTitle]
+    else:
+        number = numberMap[columnTitle[0]]
+        while titleLen > 1:
+            number = number * 26 + numberMap[columnTitle[1]]
+            titleLen -= 1
+            columnTitle = columnTitle[1:]
+
+    return number
+
+
 def convertToTitle(columnNumber: int) -> str:
     """This is a LeetCode problem where the function returns the column title for a given column
     number.
@@ -52,11 +70,15 @@ if __name__ == "__main__":
     print(convertToTitle(28))
     print(convertToTitle(701))
     print(convertToTitle(702))
+    print(convertToTitle(703))
     print(convertToTitle(2147483647))
     print(convertToTitle(52))
     print(convertToTitle(7020))
     print(convertToTitle(5473578))
-    # print(test(2147483647))
-    # print(test(703))
-    # print(test(702))
-    # print(test(701))
+    print()
+    print(convertToNumber('A'))
+    print(convertToNumber('AB'))
+    print(convertToNumber('ZY'))
+    print(convertToNumber('ZZ'))
+    print(convertToNumber('AAA'))
+    print(convertToNumber('FXSHRXW'))
