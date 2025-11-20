@@ -5,10 +5,28 @@ def convertToTitle(columnNumber: int) -> str:
     """This is a LeetCode problem where the function returns the column title for a given column
     number.
 
-    While the approach
+    While the approach seems simple but things get a little interesting when the column number
+    is a quite bigger. Moreover, special logic has to be deduced for edge cases. So here you go.
 
-    :param columnNumber:
-    :return:
+    Initiate title as a blank string and a mapping for column number to column title.
+
+    If column number is less than or equal to 26 then it is straightforward and return the corresponding
+    letter as found in the mapping.
+
+    When column number is greater than 26 then we need to do certain tricks. Start a while loop and
+    create two variables as 'front' which is the integer division result divided by 26 and 'rear' which
+    is modulus of that.
+
+    If modulus is 0 then rear is equal to 26 af front should be decremented by 1. Then prefix the
+    corresponding letter for rear and continue the while loop.
+
+    At the end, prefix the letter for front with the title and return.
+
+    Args:
+        columnNumber(int): Column number of an Excel file.
+
+    Returns:
+        str: Corresponding column title of a given column number
     """
     title = ''
     titleMap: dict[int] = {i: string.ascii_uppercase[i - 1] for i in range(1, 27)}
