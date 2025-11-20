@@ -1,6 +1,42 @@
 import string
 
 
+def convertToNumberBestSolution(columnTitle: str) -> int:
+    """While ConvertToNumber() solution is great and beats 100% of the solutions in terms of time complexity,
+    it is a little lagging in space complexity.
+
+    Using Python's default ord() method is doing the trick here.
+
+    :param columnTitle:
+    :return:
+    """
+
+
+
+
+def convertToTitleBestSolution(columnNumber: int) -> str:
+    """While ConvertToNumber() solution is great and beats 100% of the solutions in terms of time complexity,
+    it is a little lagging in space complexity.
+
+    Using Python's default ord() method is doing the trick here.
+
+    Args:
+        columnNumber(int): Column number of an Excel file.
+
+    Returns:
+        str: Corresponding column title of a given column number
+    """
+    result = ''
+    while columnNumber > 0:
+        columnNumber -= 1
+        remainder = columnNumber % 26
+        letter = chr(ord('A') + remainder)
+        result = letter + result
+        columnNumber //= 26
+
+    return result
+
+
 def convertToNumber(columnTitle: str) -> int:
     number: int = 0
     numberMap: dict[str] = {string.ascii_uppercase[i - 1]: i for i in range(1, 27)}
@@ -66,19 +102,23 @@ def convertToTitle(columnNumber: int) -> str:
 
 
 if __name__ == "__main__":
-    print(convertToTitle(1))
-    print(convertToTitle(28))
-    print(convertToTitle(701))
-    print(convertToTitle(702))
-    print(convertToTitle(703))
-    print(convertToTitle(2147483647))
-    print(convertToTitle(52))
-    print(convertToTitle(7020))
-    print(convertToTitle(5473578))
-    print()
-    print(convertToNumber('A'))
-    print(convertToNumber('AB'))
-    print(convertToNumber('ZY'))
-    print(convertToNumber('ZZ'))
-    print(convertToNumber('AAA'))
-    print(convertToNumber('FXSHRXW'))
+    # print(convertToTitle(1))
+    # print(convertToTitle(28))
+    # print(convertToTitle(701))
+    # print(convertToTitle(702))
+    # print(convertToTitle(703))
+    # print(convertToTitle(2147483647))
+    # print(convertToTitle(52))
+    # print(convertToTitle(7020))
+    # print(convertToTitle(5473578))
+    # print()
+    # print(convertToNumber('A'))
+    # print(convertToNumber('AB'))
+    # print(convertToNumber('ZY'))
+    # print(convertToNumber('ZZ'))
+    # print(convertToNumber('AAA'))
+    # print(convertToNumber('FXSHRXW'))
+    print(convertToTitleBestSolution(2147483647))
+    print(convertToTitleBestSolution(701))
+    print(convertToTitleBestSolution(703))
+    print(convertToTitleBestSolution(28))
