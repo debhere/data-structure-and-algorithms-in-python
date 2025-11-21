@@ -2,23 +2,32 @@ import string
 
 
 def convertToNumberBestSolution(columnTitle: str) -> int:
-    """While ConvertToNumber() solution is great and beats 100% of the solutions in terms of time complexity,
-    it is a little lagging in space complexity.
+    """This is a LeetCode problem. There is another solution below but with more lines of code and a
+    greater space complexity.
 
-    Using Python's default ord() method is doing the trick here.
+    Here again I have leveraged Python's ord() function. The approach is simple i.e., for any given column
+    title, loop through to get each character's ordinal number, multiple 26 with the previous character and
+    store the summation in a variable. Return the consolidated result.
 
-    :param columnTitle:
-    :return:
+    Args:
+        columnTitle(str): Column title of an Excel file.
+
+    Returns:
+        int: Corresponding column number of a given column title
     """
+    result = 0
 
+    for char in columnTitle:
+        result = result * 26 + (ord(char) - ord('A') + 1)
 
+    return result
 
 
 def convertToTitleBestSolution(columnNumber: int) -> str:
     """While ConvertToNumber() solution is great and beats 100% of the solutions in terms of time complexity,
     it is a little lagging in space complexity.
 
-    Using Python's default ord() method is doing the trick here.
+    Using Python's default ord() method is doing the trick here with considerably lesser lines of code.
 
     Args:
         columnNumber(int): Column number of an Excel file.
