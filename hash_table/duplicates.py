@@ -2,6 +2,16 @@ from typing import List
 
 
 def containsNearbyDuplicates(nums: List[int], k: int) -> bool:
+    """This is a famous LeetCode problem. Given an integer array nums and an integer k, return true if there are two
+    distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+    Args:
+        nums (List[int]): An array of integers.
+        k (int): An integer
+
+    Returns:
+        bool
+    """
     temp: int = -1
     dupeMap: dict[int] = {}
 
