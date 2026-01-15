@@ -1,6 +1,5 @@
 
 def reverseOnlyLetters(s: str) -> str:
-    # punctuations: str = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~"
     front = 0
     rear = len(s) - 1
     res: str = ''
@@ -24,6 +23,27 @@ def reverseOnlyLetters(s: str) -> str:
     return res
 
 
+def optimumSolution(s: str) -> str:
+    """Given a string s, reverse the string according to the following rules:
+    All the characters that are not English letters remain in the same position.
+    All the English letters (lowercase or uppercase) should be reversed.
+    Return s after reversing it.
+
+    Args:
+        s: string, the input of the string
+
+    Returns:
+        string: String where only the letter position is reversed.
+    """
+    s = list(s)
+    stack = [c for c in s if c.isalpha()]
+    for i in range(len(s)):
+        if s[i].isalpha():
+            s[i] = stack.pop()
+
+    return ''.join(s)
+
+
 if __name__ == "__main__":
     print(reverseOnlyLetters("ab-cd"))
     print(reverseOnlyLetters("a-bC-dEf-ghIj"))
@@ -32,8 +52,12 @@ if __name__ == "__main__":
     print(reverseOnlyLetters("7_28]"))
     print(reverseOnlyLetters(";1yDV"))
 
+    print()
 
-    # a = "d1a2$"
-    # for i, l in enumerate(a):
-    #     print(f"{i}: {l.isdigit()}")
-    #     print(f"{i}: {l.isalpha()}")
+    print(optimumSolution("ab-cd"))
+    print(optimumSolution("a-bC-dEf-ghIj"))
+    print(optimumSolution("Test1ng-Leet=code-Q!"))
+    print(optimumSolution("-"))
+    print(optimumSolution("7_28]"))
+    print(optimumSolution(";1yDV"))
+
