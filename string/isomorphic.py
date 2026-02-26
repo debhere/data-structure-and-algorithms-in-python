@@ -6,7 +6,9 @@ def isIsomorphic(s: str, t: str) -> bool:
     else:
         sMap = {}
         for i, l in enumerate(s):
-            if sMap.get(l, 'NF') == 'NF':
+            if t[i] in sMap.values() and sMap.get(l, 'NF') == 'NF':
+                return False
+            elif sMap.get(l, 'NF') == 'NF':
                 sMap[l] = t[i]
             else:
                 continue
@@ -23,3 +25,4 @@ if __name__ == "__main__":
     print(isIsomorphic("paper", "title"))
     print(isIsomorphic("foo", "bar"))
     print(isIsomorphic("bbbaaaba", "aaabbbba"))
+    print(isIsomorphic("badc", "baba"))
