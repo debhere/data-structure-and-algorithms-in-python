@@ -8,9 +8,10 @@ def findMaxAverage(nums: List[int], k: int) -> float:
 
     Args:
         nums: List[int], the input array of numbers.
+        k: int, number of elements in the sub-array.
 
     Returns:
-        k: float, Highest average among the contagious sub-arrays.
+        float: Highest average among the contagious sub-arrays.
 
     """
     max_sum = sum(nums[: k])
